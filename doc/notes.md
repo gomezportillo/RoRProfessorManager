@@ -47,3 +47,14 @@ rails g scaffold Student_Subject student:references subject:references
 * Student_Subject
   * belongs_to :subject
   * belongs_to :student
+
+## Other commands
+
+### Generate Bootstrap-themed pages
+
+```bash
+ rails g bootstrap:themed Professors
+ rails g bootstrap:themed Students
+ rails g bootstrap:themed Subjects
+ rails g bootstrap:themed StudentSubjects
+ ```
