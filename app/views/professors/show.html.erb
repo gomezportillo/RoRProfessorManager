@@ -10,6 +10,21 @@
   <dd><%= @professor.area %></dd>
 </dl>
 
+<br>
+
+<% if @professor.subjects.any? %>
+  <h3>Subjects taught</h3>
+  <ul>
+  <% @professor.subjects.each do |subject| %>
+    <li><%= link_to subject.name, subject_path(subject) %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <h4>This professor is not teaching any subject</h4>
+<% end %>
+
+<br><br>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               professors_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

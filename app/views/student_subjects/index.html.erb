@@ -16,9 +16,9 @@
     <% @student_subjects.each do |student_subject| %>
       <tr>
         <td><%= link_to student_subject.id, student_subject_path(student_subject) %></td>
-        <td><%= student_subject.student_id %></td>
-        <td><%= student_subject.subject_id %></td>
-        <td><%=l student_subject.created_at %></td>
+        <td><%= link_to student_subject.student.name, student_path(student_subject.student) %></td>
+        <td><%= link_to student_subject.subject.name, subject_path(student_subject.subject) %></td>
+        <td><%= student_subject.created_at.strftime("%B %d at %I:%M %p") %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_student_subject_path(student_subject), :class => 'btn btn-default btn-xs' %>

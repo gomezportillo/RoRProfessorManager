@@ -5,9 +5,9 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:student_id) %>:</strong></dt>
-  <dd><%= @student_subject.student_id %></dd>
+  <dd><%= link_to  @student_subject.student.name, student_path(@student_subject.student) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:subject_id) %>:</strong></dt>
-  <dd><%= @student_subject.subject_id %></dd>
+  <dd><%= link_to  @student_subject.subject.name, subject_path(@student_subject.subject) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

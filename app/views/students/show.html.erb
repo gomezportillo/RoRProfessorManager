@@ -10,6 +10,21 @@
   <dd><%= @student.avg_mark %></dd>
 </dl>
 
+<br>
+
+<% if @student.subjects.any? %>
+  <h3>Enrollements</h3>
+  <ul>
+  <% @student.subjects.each do |subject| %>
+    <li><%= link_to subject.name, subject_path(subject) %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <h4>This student is not enrolled in any subjects</h4>
+<% end %>
+
+<br><br>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               students_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

@@ -9,8 +9,23 @@
   <dt><strong><%= model_class.human_attribute_name(:credit) %>:</strong></dt>
   <dd><%= @subject.credit %></dd>
   <dt><strong><%= model_class.human_attribute_name(:professor_id) %>:</strong></dt>
-  <dd><%= @subject.professor_id %></dd>
+  <dd><%= link_to @subject.professor.name, professor_path(@subject.professor) %></dd>
 </dl>
+
+<br>
+
+<% if @subject.students.any? %>
+  <h3>Enrolled students</h3>
+  <ul>
+  <% @subject.students.each do |student| %>
+    <li><%= link_to student.name, student_path(student) %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <h4>This subject has no enrolled student</h4>
+<% end %>
+
+<br><br>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               subjects_path, :class => 'btn btn-default'  %>
