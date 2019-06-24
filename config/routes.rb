@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :students
   resources :professors
 
-  root 'application#welcome'
-  
+  root 'home#welcome'
+
 end
