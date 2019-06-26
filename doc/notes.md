@@ -58,3 +58,10 @@ rails g scaffold Student_Subject student:references subject:references
  rails g bootstrap:themed Subjects
  rails g bootstrap:themed StudentSubjects
  ```
+
+### Generate production ddbb
+
+```bash
+RAILS_ENV=production rails db:create
+RAILS_ENV=production rails db:migrate
+```
